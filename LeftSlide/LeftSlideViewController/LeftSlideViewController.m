@@ -37,10 +37,10 @@
 {
     if(self = [super init]){
         self.speedf = vSpeedFloat;
-        
         self.leftVC = leftVC;
         self.mainVC = mainVC;
-        
+        [self addChildViewController:self.leftVC];
+        [self addChildViewController:self.mainVC];
         //滑动手势
         self.pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)];
         [self.mainVC.view addGestureRecognizer:self.pan];
